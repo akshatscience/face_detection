@@ -1,17 +1,16 @@
 import cv2
-detect=cv2.CascadeClassifier('/home/akshat/final_project/env/lib/python3.7/site-packages/cv2/data/haarcascade_frontalface_default.xml')
 
+detect=cv2.CascadeClassifier('/home/akshat/final_project/env/lib/python3.7/site-packages/cv2/data/haarcascade_frontalface_default.xml')
 def extract(img):
     grey=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
     face_classifier=detect.detectMultiScale(grey,1.3,5)
-
     if face_classifier is():
         return None
     for (x,y,h,w) in face_classifier:
         faces=img[y:y+h,x:x+w]
     
-    
     return faces
+
 cap=cv2.VideoCapture(0)
 c=0
 while True:
